@@ -1,0 +1,96 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    @apply scroll-smooth;
+  }
+
+  .btn-outline {
+    @apply flex w-fit min-w-[148px] items-center justify-center rounded-full border border-[#808D9E] bg-white px-10 py-3.5 text-base font-medium leading-normal text-dark-500 hover:border-transparent hover:bg-G1 hover:bg-[length:110%] hover:text-white;
+  }
+
+  /* body {
+    @apply after:pointer-events-none after:fixed after:left-1/2 after:top-0 after:block after:h-full after:w-full after:max-w-7xl after:-translate-x-1/2 after:border-x after:border-red-300 after:content-[''];
+  } */
+
+  .btn-grad {
+    background: linear-gradient(93.64deg, #6dd3f5 0%, #6455f0 70.99%, #4033ae 95%);
+    padding: 15px 45px;
+    text-align: center;
+    text-transform: uppercase;
+    transition: 0.5s;
+    background-size: 130%;
+    background-position: left center;
+    color: white;
+    border-radius: 100px;
+    display: block;
+  }
+
+  .btn-grad:hover {
+    background-position: right center;
+    background-size: 140%;
+    color: #fff;
+    text-decoration: none;
+    animation: bg 1.5s linear infinite alternate-reverse forwards;
+  }
+
+  /* ===== Scrollbar CSS ===== */
+  /* Firefox */
+  * {
+    scrollbar-width: auto;
+    scrollbar-color: #94a3b8 #e2e8f0;
+  }
+
+  /* Chrome, Edge, and Safari */
+  *::-webkit-scrollbar {
+    width: 16px;
+    border-radius: 7px;
+  }
+
+  *::-webkit-scrollbar-track {
+    background: #e2e8f0;
+    border-radius: 7px;
+  }
+
+  *::-webkit-scrollbar-thumb {
+    background-color: #94a3b8;
+    border-radius: 7px;
+  }
+
+  .animate-in {
+    animation: anim-in 0.3s ease;
+  }
+
+  .animate-out {
+    animation: anim-out 0.3s ease;
+  }
+
+  @keyframes anim-in {
+    from {
+      transform: scale(0);
+    }
+    to {
+      transform: scale(1);
+    }
+  }
+
+  @keyframes anim-out {
+    from {
+      transform: scale(1);
+    }
+    to {
+      transform: scale(0);
+    }
+  }
+
+  @keyframes bg {
+    from {
+      background-position: right center;
+    }
+    to {
+      background-position: left center;
+    }
+  }
+}
