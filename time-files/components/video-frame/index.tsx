@@ -177,21 +177,28 @@ const wait = (ms: number) => new Promise(resolve => setTimeout(resolve, ms));
               <Xmark />
             </a>
           </div>
-          <div className="rounded-2xl overflow-hidden aspect-video md:aspect-auto md:h-[511px] relative z-0 mb-8">
-          {isPlaying ? (
-          <video controls autoPlay className="w-full h-full object-contain">
-            <source src={`http://127.0.0.1:5000/videos/video/${video.id}`} type="video/mp4" />
-            Your browser does not support the video tag.
-          </video>
-        ) : (
-          <>
-            <img src={`http://127.0.0.1:5000/uploads/${video.banner}`} alt="Video Banner" className="w-full h-full object-cover" />
-            <button onClick={toggleVideoPlay} className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
-              <PlayButton className="w-14 h-14 md:w-auto md:h-auto" />
-            </button>
-          </>
-        )}
+      
+          <div className="rounded-2xl overflow-hidden aspect-video md:aspect-auto md:h-auto relative z-0 mb-8" style={{ height: '600px' }}>
+            {hasVideoResults ? (
+              <iframe src={`http://localhost:3000/chart/index.html?data=http://127.0.0.1:5000/videos/get_graph_data/${video.id}&video=http://127.0.0.1:5000/videos/video/${video.id}/graph`} style={{ width: '100%', height: '100%', border: 'none' }}></iframe>
+            ) : (
+              isPlaying ? (
+                <video controls autoPlay className="w-full h-full object-contain">
+                  <source src={`http://127.0.0.1:5000/videos/video/${video.id}`} type="video/mp4" />
+                  Your browser does not support the video tag.
+                </video>
+              ) : (
+                <>
+                  <img src={`http://127.0.0.1:5000/uploads/${video.banner}`} alt="Video Banner" className="w-full h-full object-cover" />
+                  <button onClick={toggleVideoPlay} className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+                    <PlayButton className="w-14 h-14 md:w-auto md:h-auto" />
+                  </button>
+                </>
+              )
+            )}
           </div>
+      
+        
 
           
           <div>
