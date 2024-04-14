@@ -60,7 +60,7 @@ const updateChart = (chart) => {
             .attr("fill", "none")
             .attr("stroke", PALETTE[i])
             .attr("stroke-opacity", 0.5) 
-            .attr("stroke-width", 5)
+            .attr("stroke-width", 2)
             .attr("d", line);
     
     })

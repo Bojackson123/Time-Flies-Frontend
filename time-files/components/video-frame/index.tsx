@@ -9,6 +9,9 @@ import { useRouter } from "next/navigation";
 import { useState, useEffect } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import * as React from 'react';
+import Button from '@mui/material/Button';
+import { Slider } from "@mui/material";
 
 interface VideoProps {
   video: string;
@@ -180,7 +183,11 @@ const wait = (ms: number) => new Promise(resolve => setTimeout(resolve, ms));
       
           <div className="rounded-2xl overflow-hidden aspect-video md:aspect-auto md:h-auto relative z-0 mb-8" style={{ height: '600px' }}>
             {hasVideoResults ? (
-              <iframe src={`http://localhost:3000/chart/index.html?data=http://127.0.0.1:5000/videos/get_graph_data/${video.id}&video=http://127.0.0.1:5000/videos/video/${video.id}/graph`} style={{ width: '100%', height: '100%', border: 'none' }}></iframe>
+              <iframe
+              key={video.id}
+              src={`http://localhost:3000/chart/index.html?data=${encodeURIComponent(`http://127.0.0.1:5000/videos/get_graph_data/${video.id}`)}&video=${encodeURIComponent(`http://127.0.0.1:5000/videos/video/${video.id}`)}`}
+              style={{ width: '100%', height: '100%', border: 'none' }}
+            />
             ) : (
               isPlaying ? (
                 <video controls autoPlay className="w-full h-full object-contain">
@@ -204,6 +211,19 @@ const wait = (ms: number) => new Promise(resolve => setTimeout(resolve, ms));
           <div>
             {hasVideoResults ? (
               <>
+              <p className="text-center font-bold text-2x1"> Attention Threshold</p>
+              <div className="py-5">
+              <Slider
+                aria-label="Temperature"
+                defaultValue={30}
+                valueLabelDisplay="auto"
+                shiftStep={30}
+                step={10}
+                marks
+                min={0}
+                max={100}
+              />
+              </div>
                 <button className="block rounded-full w-fit px-11 py-3.5 mx-auto text-base leading-8 font-semibold text-white bg-primary transition-all hover:bg-blue-600 mb-6 cursor-pointer" onClick={downloadResults}>
                   Download Result
                 </button>
