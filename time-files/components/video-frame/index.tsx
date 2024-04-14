@@ -185,7 +185,7 @@ const wait = (ms: number) => new Promise(resolve => setTimeout(resolve, ms));
             {hasVideoResults ? (
               <iframe
               key={video.id}
-              src={`http://localhost:3000/chart/index.html?data=${encodeURIComponent(`http://127.0.0.1:5000/videos/get_graph_data/${video.id}`)}&video=${encodeURIComponent(`http://127.0.0.1:5000/videos/video/${video.id}`)}`}
+              src={`time-flies-frontend.vercel.app/chart/index.html?data=${encodeURIComponent(`http://127.0.0.1:5000/videos/get_graph_data/${video.id}`)}&video=${encodeURIComponent(`http://127.0.0.1:5000/videos/video/${video.id}`)}`}
               style={{ width: '100%', height: '100%', border: 'none' }}
             />
             ) : (
