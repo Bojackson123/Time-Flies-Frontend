@@ -79,7 +79,7 @@ export default function VideoUploadRecent() {
         throw new Error('Failed to fetch');
       }
       const data = await response.json();
-      setVideos(data.videos); // Adjust according to your API response structure
+      setVideos(data.videos); 
     } catch (error) {
       if (error instanceof Error) {
         setError(error.message);

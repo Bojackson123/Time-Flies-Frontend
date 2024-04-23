@@ -10,8 +10,9 @@ import { useState, useEffect } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import * as React from 'react';
-import Button from '@mui/material/Button';
 import { Slider } from "@mui/material";
+
+
 
 interface VideoProps {
   video: string;
@@ -29,6 +30,7 @@ export default function VideoFrame(props: VideoProps) {
   const [isPlaying, setIsPlaying] = useState(false);
   const [hasVideoResults, setHasVideoResults] = useState(false);
   const id  = props.video; // Getting the video ID from the URL parameter
+  const [sliderValue, setSliderValue] = useState(2.0); // Default slider value
   const router = useRouter();
 
   useEffect(() => {
@@ -84,6 +86,11 @@ export default function VideoFrame(props: VideoProps) {
   }
   const toggleVideoPlay = () => {
     setIsPlaying(!isPlaying); // Toggle video play state
+  };
+
+  const handleSliderChange = (event: Event, newValue: number | number[]) => {
+    setSliderValue(newValue as number); // Update the slider value
+    console.log(newValue);
   };
 
   const analyzeVideoById = async () => {
@@ -167,6 +174,13 @@ export default function VideoFrame(props: VideoProps) {
     }
   };
 
+  const sliderMarks = [
+    { value: 1.0, label: '50%' },
+    { value: 2.0, label: '100%' },
+    { value: 3.0, label: '150%' },
+    { value: 4.0, label: '200%' },
+  ];
+
 const wait = (ms: number) => new Promise(resolve => setTimeout(resolve, ms));
   
   return (
@@ -185,7 +199,7 @@ const wait = (ms: number) => new Promise(resolve => setTimeout(resolve, ms));
             {hasVideoResults ? (
               <iframe
               key={video.id}
-              src={`http://localhost:3000/chart/index.html?data=http://127.0.0.1:5000/videos/get_graph_data/${video.id}&video=http://127.0.0.1:5000/videos/video/${video.id}`}
+              src={`http://localhost:3000/chart/index.html?data=http://127.0.0.1:5000/videos/get_graph_data/${video.id}/${sliderValue}&video=http://127.0.0.1:5000/videos/video/${video.id}`}
               style={{ width: '100%', height: '100%', border: 'none' }}
             />
             ) : (
@@ -214,14 +228,14 @@ const wait = (ms: number) => new Promise(resolve => setTimeout(resolve, ms));
               <p className="text-center font-bold text-2x1"> Attention Threshold</p>
               <div className="py-5">
               <Slider
-                aria-label="Temperature"
-                defaultValue={30}
-                valueLabelDisplay="auto"
-                shiftStep={30}
-                step={10}
-                marks
-                min={0}
-                max={100}
+                aria-label="Custom marks"
+                value={sliderValue}
+                onChange={handleSliderChange}
+                step={1.0}
+                marks={sliderMarks}
+                min={1.0}
+                max={4.0}
+                getAriaValueText={(value) => `${value}%`}
               />
               </div>
                 <button className="block rounded-full w-fit px-11 py-3.5 mx-auto text-base leading-8 font-semibold text-white bg-primary transition-all hover:bg-blue-600 mb-6 cursor-pointer" onClick={downloadResults}>

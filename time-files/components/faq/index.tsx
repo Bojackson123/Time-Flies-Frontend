@@ -24,13 +24,16 @@ const faqs = [
   },
   {
     question: "Is there a limit to the length of video that can be analyzed?",
-    answer: "Currently, our model is optimized for videos up to a certain length to ensure accuracy and detail in the results. Please refer to the technical specifications for more details.",
+    answer: "Currently, our model is optimized for videos up to 64 seconds to ensure accuracy and detail in the results. Please refer to the technical specifications for more details.",
   },
   
 ];
-
+// Component function
 export default function FAQ() {
+  // JavaScript logic goes here
   return (
+    // Returns the HTML
+    // Style the component using Tailwind CSS className parameters
     <section id="faq" className="mb-14 w-full pt-14 md:mb-36 md:pt-24">
       <div className="container">
         <div className="mx-auto w-full max-w-[1064px]">
