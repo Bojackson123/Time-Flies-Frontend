@@ -138,41 +138,58 @@ export default function VideoFrame(props: VideoProps) {
     }
 };
 
-  const downloadResults = async () => {
-    try {
-      const response = await fetch(`http://127.0.0.1:5000/videos/download_results/${id}`, {
-        method: 'GET',
-        credentials: 'include',
-      });
-  
-      if (!response.ok) {
-        toast.error('Error downloading video results');
-        throw new Error('Network response was not ok');
-      }
-  
-      // Create a blob from the response data
-      const blob = await response.blob();
-      // Create a URL from the blob
-      const url = window.URL.createObjectURL(blob);
-      // Create a temporary link element
-      const a = document.createElement('a');
-      // Set the download filename
-      a.download = 'video_results'; 
-      // Set the href to the blob URL
-      a.href = url;
-      // Append the link to the body (required for Firefox)
-      document.body.appendChild(a);
-      // Trigger the download by simulating a click
-      a.click();
-      // Remove the link after triggering the download
-      document.body.removeChild(a);
-      // Release the blob URL to free up resources
-      window.URL.revokeObjectURL(url);
-  
-    } catch (error) {
-      console.error('Error downloading video results', error);
+const downloadResults = async () => {
+  if (!video) {
+    toast.error('Video information is not available.');
+    return;
+  }
+
+  try {
+    const response = await fetch(`http://127.0.0.1:5000/videos/download_results/${id}/${sliderValue}`, {
+      method: 'GET',
+      credentials: 'include',
+    });
+
+    if (!response.ok) {
+      toast.error('Error downloading video results');
+      throw new Error('Network response was not ok');
     }
-  };
+
+    // Create a blob from the response data
+    const blob = await response.blob();
+    // Create a URL from the blob
+    const url = window.URL.createObjectURL(blob);
+
+    // Function to find label for sliderValue
+    const getLabelForValue = (value: number): string => {
+      const mark = sliderMarks.find(mark => mark.value === value);
+      return mark ? mark.label : '';
+    };
+
+    // Get label for current slider value
+    const label = getLabelForValue(sliderValue);
+    const titleWithoutExtension = video.title.replace(/\.[^/.]+$/, '');
+    const safeTitle = titleWithoutExtension.replace(/[^a-z0-9]/gi, '_').toLowerCase();
+
+    // Create a temporary link element
+    const a = document.createElement('a');
+    // Set the download filename with label
+    a.download = `${safeTitle}_${label}`; // Append label here
+    // Set the href to the blob URL
+    a.href = url;
+    // Append the link to the body (required for Firefox)
+    document.body.appendChild(a);
+    // Trigger the download by simulating a click
+    a.click();
+    // Remove the link after triggering the download
+    document.body.removeChild(a);
+    // Release the blob URL to free up resources
+    window.URL.revokeObjectURL(url);
+
+  } catch (error) {
+    console.error('Error downloading video results', error);
+  }
+};
 
   const sliderMarks = [
     { value: 1.0, label: '50%' },
@@ -199,7 +216,7 @@ const wait = (ms: number) => new Promise(resolve => setTimeout(resolve, ms));
             {hasVideoResults ? (
               <iframe
               key={video.id}
-              src={`http://localhost:3000/chart/index.html?data=http://127.0.0.1:5000/videos/get_graph_data/${video.id}/${sliderValue}&video=http://127.0.0.1:5000/videos/video/${video.id}`}
+              src={`https://time-flies-frontend.vercel.app/chart/index.html?data=http://127.0.0.1:5000/videos/get_graph_data/${video.id}/${sliderValue}&video=http://127.0.0.1:5000/videos/video/${video.id}`}
               style={{ width: '100%', height: '100%', border: 'none' }}
             />
             ) : (
