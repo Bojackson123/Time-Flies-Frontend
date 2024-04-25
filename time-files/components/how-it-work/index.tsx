@@ -1,8 +1,8 @@
 import WorkItems from "./work-items";
 import Container from "components/container";
-import building from "components/images/building.jpg";
-import time from "components/images/time.jpg";
-import results from "components/images/results.jpg";
+import building from "components/images/building.webp";
+import time from "components/images/time.webp";
+import results from "components/images/results.webp";
 
 const workcontent = [
   {

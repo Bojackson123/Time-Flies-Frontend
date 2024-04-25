@@ -20,7 +20,11 @@ export default function WorkItems(props: Props) {
         <div key={index} className="w-full grid grid-cols-1 gap-y-12 group/work md:grid-cols-2 items-center">
           <div className="group-odd/work:md:pr-14 group-even/work:md:pl-14 group-even/work:md:order-last">
             <div className="relative">
-              <Image src={item.banner} alt={item.title} className="w-full object-cover rounded-2xl md:rounded-[32px] inline-block aspect-video md:aspect-auto md:h-[600px]" />
+            <Image 
+                src={item.banner} 
+                alt={item.title} 
+                className="w-full object-cover rounded-2xl md:rounded-[32px] inline-block aspect-video md:aspect-auto md:h-[600px]"
+              />
               <span className="hidden md:block h-[95%] w-5 bg-white z-10 rounded-full absolute top-1/2 -translate-y-1/2 group-odd/work:left-full group-even/work:right-full"></span>
               <span className="hidden md:block h-[90%] z-0 w-10 bg-white/50 rounded-full absolute top-1/2 -translate-y-1/2 group-odd/work:left-full group-even/work:right-full"></span>
               <span className="hidden md:block h-[90%] -z-10 w-10 bg-black/[0.15] blur-[50px] rounded-full absolute top-1/2 -translate-y-1/2 group-odd/work:left-full group-even/work:right-full"></span>

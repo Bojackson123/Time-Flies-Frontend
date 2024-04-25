@@ -32,7 +32,7 @@ export default function ProductOverview() {
               muted
               playsInline // This attribute is often necessary for autoplay to work on mobile browsers
               className="inline-block h-auto w-full rounded-3xl object-cover"
-              src="/videos/sparkler.mp4" // Use HeroVideo instead if your video is imported
+              src="/videos/sparkler.webm" 
             >
               Your browser does not support the video tag.
             </video>

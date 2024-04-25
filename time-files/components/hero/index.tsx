@@ -27,9 +27,9 @@ export default function Hero() {
           autoPlay
           loop
           muted
-          playsInline // This attribute is often necessary for autoplay to work on mobile browsers
+          playsInline 
           className="inline-block h-auto w-full rounded-3xl object-cover"
-          src="/videos/hiking.mp4" 
+          src="/videos/hiking.webm" 
       >
         Your browser does not support the video tag.
       </video>
