@@ -1,8 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 "use client";
-import banner from "components/images/dashboard-bg.jpg";
+import banner from "components/images/dashboard-bg.webp";
 import logo from "components/images/logo.svg";
-import avatar from "components/images/user.png";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
