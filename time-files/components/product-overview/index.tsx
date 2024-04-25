@@ -18,11 +18,11 @@ export default function ProductOverview() {
               </h2>
             </div>
             <p className="w-full text-xl font-normal leading-[34px] text-[#E6E9ED] lg:max-w-[565px]">
-            Discover a new dimension in video analysis with our AI-driven tool designed for researchers. By evaluating time perception in response to video stimuli, our model offers a unique lens to understand how the human mind works.
+            Discover a new dimension in video analysis with our AI-driven tool designed for researchers. By evaluating time perception in response to video stimuli, our model offers a unique lens to understand the human mind.
               </p>
           </div>
           <div className="flex w-full flex-col items-start justify-between gap-10 lg:flex-row">
-            <div className="w-full rounded-[17px] bg-white p-[22px] lg:max-w-600px] border">
+            <div className="w-full rounded-[17px] bg-white p-[22px] lg:max-w-[375px] border">
               <h4 className="mb-[17px] text-[19px] font-bold leading-none text-[#060C3C]">Video Results</h4>
               <Image 
                 src={results} 
