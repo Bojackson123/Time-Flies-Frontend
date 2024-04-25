@@ -1,6 +1,7 @@
 import Container from "components/container";
 import Chart from "components/icons/chart";
 import insightGirl from "components/images/insight-girls.png";
+import results from "components/images/Graph_AI.webp";
 import Image from "next/image";
 
 export default function ProductOverview() {
@@ -17,13 +18,18 @@ export default function ProductOverview() {
               </h2>
             </div>
             <p className="w-full text-xl font-normal leading-[34px] text-[#E6E9ED] lg:max-w-[565px]">
-            Discover a new dimension in video analysis with our AI-driven tool designed for researchers. By evaluating time perception in response to video stimuli, our model offers a unique lens to understand viewer engagement and perception patterns.
+            Discover a new dimension in video analysis with our AI-driven tool designed for researchers. By evaluating time perception in response to video stimuli, our model offers a unique lens to understand how the human mind works.
               </p>
           </div>
           <div className="flex w-full flex-col items-start justify-between gap-10 lg:flex-row">
-            <div className="w-full rounded-[17px] bg-white p-[22px] lg:max-w-[375px] border">
-              <h4 className="mb-[17px] text-[19px] font-bold leading-none text-[#060C3C]">Video Stimuli Results</h4>
-              <Chart className="h-auto w-full lg:w-auto" />
+            <div className="w-full rounded-[17px] bg-white p-[22px] lg:max-w-600px] border">
+              <h4 className="mb-[17px] text-[19px] font-bold leading-none text-[#060C3C]">Video Results</h4>
+              <Image 
+                src={results} 
+                alt={"results"} 
+                className="h-auto w-full lg:w-auto"
+              />
+          
             </div>
             <div className="w-full lg:max-w-[765px] lg:translate-y-[142px] lg:pr-4 xl:translate-x-28 2xl:pr-0">
             <video

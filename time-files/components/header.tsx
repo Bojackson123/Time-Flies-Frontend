@@ -159,7 +159,7 @@ export default function Header() {
             {user.isLoggedIn && (
               <div className="nav-menu relative z-0 bg-white rounded-t-xl -mx-10 mt-auto px-10 py-6 flex gap-2 items-center">
                 <div className="size-16 rounded-full overflow-hidden">
-                  <Image src={avatar} alt="Avatar Name" className="size-full object-cover" />
+                <img src={`http://127.0.0.1:5000/uploads/pfp/${user2.pfp}`} alt="Avatar Name" className="size-full object-cover" />
                 </div>
                 <div>
                   <h4 className="text-2xl font-semibold text-dark">{user2.fullname}</h4>
