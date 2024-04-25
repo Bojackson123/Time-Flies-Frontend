@@ -232,7 +232,7 @@ export default function VideoUploadRecent() {
 
           <div className="text-center max-w-[710px] mx-auto mt-8 mb-[60px]">
             <h2 className="text-4xl font-bold leading-[56px] text-slate-800 md:text-5xl">Upload Your Video for Analysis</h2>
-            <p className="mt-2 text-base font-normal leading-6 text-[#808D9E] md:text-xl md:leading-8">Ppload your video content to initiate the analysis process and gain valuable insights into subjective time perception.</p>
+            <p className="mt-2 text-base font-normal leading-6 text-[#808D9E] md:text-xl md:leading-8">Upload your video content to initiate the analysis process and gain valuable insights into subjective time perception.</p>
           </div>
         </div>
 
