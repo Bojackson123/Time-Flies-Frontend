@@ -15,11 +15,11 @@ const workcontent = [
       },
       {
         heading: "Activation-Driven Processing",
-        description:"Processes input videos of natural scenes to drive changes in network activation"
+        description:"Processes video stimuli to monitor changes in network layer activations"
       },
       {
-        heading: "Perceptual Content Quantification",
-        description:"Quantifies changes in perceptual content as differences in activation patterns across network layers."
+        heading: "Network Layer Accumulation",
+        description:"Accumulates changes of stimuli as differences in activation patterns across network layers."
       },
     ],
   },
@@ -37,7 +37,7 @@ const workcontent = [
       },
       {
         heading: "Temporal Unit Transformation",
-        description:"Transforms accumulated temporal units into standard time units (seconds) for comparison with human estimates."
+        description:"Transforms accumulated temporal units into standard time units (seconds) using regression."
       },
     ],
   },

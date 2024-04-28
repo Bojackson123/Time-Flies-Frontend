@@ -10,22 +10,22 @@ const allFeatures = [
   {
     icon: ElectricPlug,
     title: "Visual Processing and Time Estimation",
-    desc: "Simulating human visual processing with a neural network to drive activation changes for time estimation.",
+    desc: "Simulating human visual processing with a deep neural network to accumulate activation changes for time estimation.",
   },
   {
     icon: ElectricPlug,
     title: "Accumulation and Duration Estimation",
-    desc: "Estimating time duration through the accumulation of salient activation changes within the network.",
+    desc: "Estimating time duration through the accumulation of salient features within the network.",
   },
   {
     icon: ElectricPlug,
     title: "Replicating Human Biases in Time Perception",
-    desc: "The system replicates human time perception biases, evident in varying scenarios from busy cities to calm cafes.",
+    desc: "The system replicates human time perception biases with trained regression on scenarios from busy cities to calm cafes.",
   },
   {
     icon: ElectricPlug,
     title: "From Stimulus to Estimation",
-    desc: "The model illustrates the journey from visual stimulus to duration estimation, offering insights into human experience.",
+    desc: "The model illustrates the journey from visual stimulus to duration estimation, offering insights into human mind.",
   },
   {
     icon: ElectricPlug,
